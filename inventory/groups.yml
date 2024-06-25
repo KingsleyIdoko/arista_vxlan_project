@@ -1,18 +1,8 @@
 ---
-
-ios:
-  platform: ios
-
 eos:
   platform: eos
+  connection_options:
+    netconf:
+      extras:
+        auth_strict_key: false
 
-ios-xe:
-  platform: cisco_iosxe
-
-euro_group:
-      data:
-          ntp_server: "4.4.4.4"
-
-usa_group:
-      data:
-          ntp_server: "8.8.8.8"

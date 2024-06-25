@@ -1,9 +1,5 @@
-eos:
-  # port: 6030
-  connection_options:
-    scrapli:
-      platform: arista_eos
-      # port: 22
-      extras:
-        # ssh_config_file: True
-        auth_strict_key: False
+---
+username: admin
+password: cisco123
+data:
+  auth_strict_key: false
