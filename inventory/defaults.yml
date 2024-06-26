@@ -1,5 +1,5 @@
 ---
 username: admin
-password: cisco123
+password: admin123
 data:
   auth_strict_key: false

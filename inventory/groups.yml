@@ -5,4 +5,14 @@ eos:
     netconf:
       extras:
         auth_strict_key: false
+      transport_options:
+        netconf_force_pty: false
+
+
+iosxe:
+  platform: "ios"
+  connection_options:
+    netconf:
+      extras:
+        auth_strict_key: false
 
