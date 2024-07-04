@@ -1690,3 +1690,2057 @@ TypeError: netconf_get_config() got an unexpected keyword argument 'filter'
 2024-06-27 00:07:51,794 -  nornir.core -     INFO -        run() - Running task 'netconf_get_config' with args {} on 1 hosts
 2024-06-27 00:09:29,841 -  nornir.core -     INFO -        run() - Running task 'netconf_get_config' with args {} on 1 hosts
 2024-06-27 00:09:49,174 -  nornir.core -     INFO -        run() - Running task 'netconf_get_config' with args {} on 1 hosts
+2024-07-01 12:12:07,036 -  nornir.core -     INFO -        run() - Running task 'netconf_get_config' with args {} on 1 hosts
+2024-07-01 12:14:20,875 -  nornir.core -     INFO -        run() - Running task 'netconf_get_config' with args {} on 1 hosts
+2024-07-01 13:56:07,962 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 13:56:07,981 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fc3ed1cbfd0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.73.1.105', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc3ed1cbfd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/get_config_xml.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='10.73.1.105', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc3ed1cbfd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+2024-07-01 13:57:41,232 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 13:58:32,097 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 13:59:13,201 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 13:59:16,364 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 51, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-01 13:59:46,406 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 13:59:49,550 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 51, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-01 14:01:08,252 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:01:11,416 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 51, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-01 14:01:49,652 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:01:52,751 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 51, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-01 14:02:13,626 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:05:01,845 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:06:44,934 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:08:59,918 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fc9e2678e80>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='spine1', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc9e2678e80>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='spine1', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc9e2678e80>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+2024-07-01 14:10:30,455 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:10:45,530 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:12:55,858 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:12:55,876 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f852a744e80>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.73.1.105', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f852a744e80>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='10.73.1.105', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f852a744e80>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+2024-07-01 14:13:16,469 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:15:24,940 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7ffbd4c4ba00>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ffbd4c4ba00>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ffbd4c4ba00>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+2024-07-01 14:26:50,316 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:30:18,093 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:31:27,963 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 14:33:38,575 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa69c88bbb0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa69c88bbb0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa69c88bbb0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+2024-07-01 18:26:17,139 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 20:11:04,467 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 20:11:23,207 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 21:27:40,086 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 21:28:59,153 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-01 21:30:38,819 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:37:11,654 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:37:11,740 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f14c3984e80>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f14c3984e80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f14c3984e80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-07-02 10:37:18,431 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:37:18,451 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7ffaf278afd0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ffaf278afd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ffaf278afd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-07-02 10:42:51,978 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:42:51,991 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fb7fc338e80>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb7fc338e80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.1.100', port=6020): Max retries exceeded with url: /restconf/data/openconfig-interfaces:interfaces/interface=Ethernet1/state (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb7fc338e80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-07-02 10:46:04,725 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:46:49,600 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:47:18,892 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:47:52,464 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:48:09,815 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:48:17,436 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 10:50:28,472 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:16:16,159 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:16:20,956 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:16:25,695 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:16:29,890 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:29:39,944 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:45:26,352 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:45:51,928 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 11:45:59,717 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-02 11:45:59,772 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab88cc5e0>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88cc5e0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88cc5e0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:45:59,773 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab88c3ac0>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88c3ac0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88c3ac0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:45:59,774 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab88b02b0>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88b02b0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88b02b0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:45:59,775 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab889f790>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab889f790>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab889f790>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:45:59,777 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab803d0d0>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab803d0d0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab803d0d0>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:45:59,778 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f8ab88a8490>: Failed to resolve 'all' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88a8490>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 49, in get
+    result = requests.get(api_call, auth=HTTPBasicAuth(username, password), headers=headers, verify=False)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='all', port=6020): Max retries exceeded with url: /restconf/data/ietf-interfaces:interfaces/interface (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f8ab88a8490>: Failed to resolve 'all' ([Errno -2] Name or service not known)"))
+
+2024-07-02 11:46:11,497 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 12:45:25,352 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 12:50:18,140 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 12:50:18,235 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 12:53:22,082 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 12:53:22,199 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:10:54,879 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:10:54,977 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:11:09,595 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:11:29,761 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:11:29,855 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:11:51,714 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:11:51,818 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:12:36,710 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:12:36,796 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:14:51,299 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:15:31,027 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:15:51,352 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:16:33,641 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:16:41,043 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:17:29,081 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:18:08,547 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:18:08,646 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:19:13,060 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:19:13,131 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:20:05,103 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:20:05,186 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:20:20,969 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:20:21,064 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:20:51,898 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:21:29,333 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:22:38,943 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:22:39,048 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:23:28,712 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:47:23,367 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 14:47:23,462 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib64/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/interfaces.py", line 50, in get
+    return Result(host=task.host, result=result.json())
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-07-02 14:47:38,775 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 15:56:02,368 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 6 hosts
+2024-07-02 15:56:02,375 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,375 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:02,376 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,376 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:02,377 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,377 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:02,378 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,378 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:02,379 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,380 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:02,379 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 279, in open
+    connection = NetconfDriver(**parameters)
+TypeError: __init__() got an unexpected keyword argument 'timeoute_transport'
+
+2024-07-02 15:56:02,380 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 15:56:19,313 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 6 hosts
+2024-07-02 18:48:30,995 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 6 hosts
+2024-07-02 18:48:33,285 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get_config,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-02 18:48:54,738 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 19:03:20,414 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-02 19:04:57,614 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-02 19:09:15,734 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-02 19:15:19,494 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-02 19:17:58,684 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 19:18:38,863 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 19:22:41,868 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 19:26:59,390 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 19:41:44,717 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 21:06:42,586 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:13:54,317 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:14:58,354 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:16:34,837 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:19:01,619 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:24:40,402 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:25:34,489 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-02 22:34:52,392 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:25:06,653 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:25:38,796 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:31:31,674 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:39:38,906 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:41:09,848 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:43:43,110 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:44:54,951 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:46:49,146 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:47:18,395 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:47:34,507 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:49:14,424 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:49:25,152 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 00:53:02,286 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:53:02,287 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+TypeError: netconf_get() got an unexpected keyword argument 'source'
+
+2024-07-03 00:53:02,288 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 6, in get_netconf_config
+    result = task.run(task=netconf_get,source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 00:54:04,509 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:54:04,511 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+TypeError: netconf_get() got an unexpected keyword argument 'source'
+
+2024-07-03 00:54:04,511 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 7, in get_netconf_config
+    result = task.run(task=netconf_get, source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 00:56:05,571 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:57:39,629 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:57:39,630 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+TypeError: netconf_get() got an unexpected keyword argument 'source'
+
+2024-07-03 00:57:39,631 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 7, in get_netconf_config
+    result = task.run(task=netconf_get, source="running")
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 00:58:24,319 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:59:17,200 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:59:30,481 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 1 hosts
+2024-07-03 00:59:43,486 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:00:34,057 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:00:52,325 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:00:57,240 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:01:23,687 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:02:51,164 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:12:49,658 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:13:20,085 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:15:26,018 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:15:41,057 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:16:53,752 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:17:29,231 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:19:26,923 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:19:50,343 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:21:16,158 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:21:28,020 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:22:38,602 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:22:56,333 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:26:36,924 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 01:27:16,296 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:51:42,950 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:52:21,886 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:53:26,311 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:54:40,602 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:54:56,916 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 21:57:30,744 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:02:27,298 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:04:01,312 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:05:09,864 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:06:16,538 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:09:13,598 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:09:43,164 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:14:19,399 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:16:34,222 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:19:35,243 -  nornir.core -     INFO -        run() - Running task 'get_netconf_config' with args {} on 6 hosts
+2024-07-03 22:19:36,403 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 28, in netconf_get
+    scrapli_response = scrapli_conn.get(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 144, in get
+    response = self._pre_get(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/base_driver.py", line 607, in _pre_get
+    xml_filter_elem = self._build_filter(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/base_driver.py", line 493, in _build_filter
+    raise CapabilityNotSupported(msg)
+scrapli_netconf.exceptions.CapabilityNotSupported: xpath filter requested, but is not supported by the server
+
+2024-07-03 22:19:36,404 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:19:37,687 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 28, in netconf_get
+    scrapli_response = scrapli_conn.get(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 144, in get
+    response = self._pre_get(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/base_driver.py", line 607, in _pre_get
+    xml_filter_elem = self._build_filter(filter_=filter_, filter_type=filter_type)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/base_driver.py", line 493, in _build_filter
+    raise CapabilityNotSupported(msg)
+scrapli_netconf.exceptions.CapabilityNotSupported: xpath filter requested, but is not supported by the server
+
+2024-07-03 22:19:37,688 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:19:38,408 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-03 22:19:38,408 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-03 22:19:38,409 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:19:38,409 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-03 22:19:38,410 - nornir.core.task -    ERROR -      start() - Host 'leaf1': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:19:38,409 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:19:45,602 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 102, in channel_authenticate_netconf
+    buf = self.read()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 220, in read
+    return super().read()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/sync_channel.py", line 70, in read
+    buf = self.transport.read()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 109, in _multiprocessing_timeout
+    return _handle_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 141, in _handle_timeout
+    raise ScrapliTimeout(message)
+scrapli.exceptions.ScrapliTimeout: timed out reading from transport
+
+2024-07-03 22:19:45,603 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'get_netconf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/netconf_get.py", line 10, in get_netconf_config
+    result = task.run(task=netconf_get, filter_type="xpath", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-03 22:21:05,170 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:22:56,974 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:23:30,727 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:24:57,793 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:26:06,521 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:27:32,100 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:32:03,388 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:34:21,767 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:36:34,268 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:37:10,870 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:39:44,275 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:40:42,692 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-03 22:51:27,081 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:12:58,864 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:14:02,749 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:17:51,619 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:24:01,361 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:25:21,801 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:26:23,809 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:28:05,537 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:32:56,777 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:33:37,263 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:35:17,732 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:39:27,779 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:51:10,969 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:52:33,830 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:54:39,423 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:54:44,622 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 05:58:08,674 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:01:48,854 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:03:34,462 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:05:30,747 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:07:47,502 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:08:24,562 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:10:08,248 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:10:56,532 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:13:30,520 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:13:51,774 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:14:52,881 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:15:47,126 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:16:22,220 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:28:01,798 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-04 06:28:02,907 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-04 06:28:04,941 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-04 06:28:04,942 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-04 06:28:05,001 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-04 06:28:05,002 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-04 06:28:16,921 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2024-07-04 06:28:16,923 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2024-07-04 06:29:14,775 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 6 hosts
+2024-07-04 06:29:17,904 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-04 06:29:17,906 - nornir.core.task -    ERROR -      start() - Host 'leaf2': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get_config, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-04 06:29:17,958 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No route to host
+
+2024-07-04 06:29:17,959 - nornir.core.task -    ERROR -      start() - Host 'leaf4': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get_config, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-04 06:29:29,899 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'netconf_get_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/tasks/netconf/get_config.py", line 31, in netconf_get_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir_scrapli/connection.py", line 280, in open
+    connection.open()
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 107, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/scrapli/channel/base_channel.py", line 476, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Timed out connecting to host
+
+2024-07-04 06:29:29,922 - nornir.core.task -    ERROR -      start() - Host 'leaf3': task 'get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/admin/Dev/arista_vxlan_project/python_scripts/xpath.py", line 52, in get
+    result = task.run(task=netconf_get_config, filter_type="subtree", filter_=filter)
+  File "/home/admin/.local/share/virtualenvs/Dev-jffJP19G/lib/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get_config (failed)
+
+
+2024-07-04 06:51:38,540 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:53:06,737 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 06:59:18,735 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 07:20:47,387 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 07:24:48,003 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 07:24:54,011 -  nornir.core -     INFO -        run() - Running task 'create' with args {} on 1 hosts
+2024-07-04 07:29:20,163 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 07:43:17,538 -  nornir.core -     INFO -        run() - Running task 'get' with args {} on 1 hosts
+2024-07-04 07:43:23,411 -  nornir.core -     INFO -        run() - Running task 'create' with args {} on 1 hosts
+2024-07-04 07:47:03,169 -  nornir.core -     INFO -        run() - Running task 'create' with args {} on 1 hosts
+2024-07-04 07:47:32,699 -  nornir.core -     INFO -        run() - Running task 'create' with args {} on 1 hosts
